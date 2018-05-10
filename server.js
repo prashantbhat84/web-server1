@@ -1,21 +1,8 @@
 var express = require('express');
 var app = express();
-
+var middleware = require('./middleware.js');
 var PORT = 3000;  // upper case variable names signifies constant and should not be changed
-var middleware = {
-  requireAuthentication: function(req,res,next){
-             console.log('private route hit');
-             next();
-             
-  },
-  logger: function(req,res,next){
-          
 
-               console.log(req.method + ' '+ req.originalUrl+ ' '+ new Date().toString());
-               next();
-               
-  }
-};
 //app.use(middleware.requireAuthentication); //application level middle ware
 app.use(middleware.logger);
 app.get('/about',middleware.requireAuthentication,function (req,res) {
