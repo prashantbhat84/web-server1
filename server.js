@@ -19,7 +19,7 @@ var middleware = {
 //app.use(middleware.requireAuthentication); //application level middle ware
 app.use(middleware.logger);
 app.get('/about',middleware.requireAuthentication,function (req,res) {
-          res.send('about us');
+          res.send('about US!');
 });
 app.use(express.static(__dirname+'/public'));
 //console.log(__dirname);
